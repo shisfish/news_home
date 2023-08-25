@@ -1,0 +1,53 @@
+@import './base.css';
+
+#app {
+  margin: 0 auto;
+  font-weight: normal;
+  min-width: 1280px
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+header {
+  font-size: 0;
+}
+
+header img {
+  width: 100%;
+  height: auto;
+}
+
+header .menu {
+  background-color: #0168b7;
+  height: 75px;
+  width: 100%;
+  display: flex;
+  color: #fff;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+
+header .menu li {
+  padding: 0 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+header .menu li a {
+  font-size: 26px;
+  color: #fff;
+  text-decoration: none;
+}
+
+a {
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
