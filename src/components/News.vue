@@ -22,12 +22,14 @@ if (props?.menu?.newsTypeId) {
   <div class="news">
     <p class="news-title">
       <span>{{ menu.newsTypeName }}</span>
-      <a>更多&gt;&gt;</a>
+      <a :href="`/news-list?id=${menu.newsTypeId}`">更多&gt;&gt;</a>
     </p>
     <ul class="news-list" v-if="news.length">
       <li class="news-item" v-for="item of news" v-bind:key="item.newsId">
-        <span class="news-item-content">{{ item.newsTitle }}</span>
-        <span class="news-item-time">05-11</span>
+        <a :href="`/news?id=${item.newsId}`">
+          <span class="news-item-content">{{ item.newsTitle }}</span>
+          <span class="news-item-time">05-11</span>
+        </a>
       </li>
     </ul>
     <ul class="news-list" v-else>
@@ -43,7 +45,7 @@ if (props?.menu?.newsTypeId) {
   width: 33.33%;
   display: inline-block;
   margin-bottom: 30px;
-  &:first-child {
+  &:nth-child(3n + 1) {
     padding-right: 12px;
   }
   &:nth-child(3n + 2) {
@@ -67,6 +69,7 @@ if (props?.menu?.newsTypeId) {
   }
   a {
     font-size: 16px;
+    text-decoration: none;
   }
 }
 
@@ -79,6 +82,12 @@ if (props?.menu?.newsTypeId) {
     line-height: 30px;
     display: flex;
     flex-direction: row;
+    a {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      color: var(--color-text);
+    }
     .news-item-content {
       flex: 1;
       white-space: nowrap;

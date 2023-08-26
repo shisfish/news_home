@@ -38,7 +38,7 @@ header .menu li {
 }
 
 header .menu li a {
-  font-size: 26px;
+  font-size: 24px;
   color: #fff;
   text-decoration: none;
 }
@@ -46,6 +46,7 @@ header .menu li a {
 a {
   color: var(--color-primary);
   cursor: pointer;
+  text-decoration: none;
 }
 
 a:hover {

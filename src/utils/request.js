@@ -7,3 +7,7 @@ export const getNewsList = (typeId, index = 1, pageSize = 5) => {
     d.json()
   )
 }
+
+export const getNewsInfo = (newsId) => {
+  return fetch(`/prod-api/news/pc/news/${newsId}`).then((d) => d.json())
+}

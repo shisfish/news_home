@@ -23,7 +23,7 @@ getListType().then((res) => {
     <ul class="menu">
       <li><a href="/">首页</a></li>
       <li v-for="menu in menuList" v-bind:key="menu.key">
-        <a>{{ menu.newsTypeName }}</a>
+        <a :href="`/news-list?id=${menu.newsTypeId}`">{{ menu.newsTypeName }}</a>
       </li>
     </ul>
   </header>
