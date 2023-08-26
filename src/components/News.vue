@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
+import dayjs from 'dayjs';
 import { getNewsList } from '../utils/request'
+import NewsLink from './NewsLink.vue'
 
 const props = defineProps({
   menu: Object
@@ -26,10 +28,10 @@ if (props?.menu?.newsTypeId) {
     </p>
     <ul class="news-list" v-if="news.length">
       <li class="news-item" v-for="item of news" v-bind:key="item.newsId">
-        <a :href="`/news?id=${item.newsId}`">
+        <NewsLink :news-info="item">
           <span class="news-item-content">{{ item.newsTitle }}</span>
-          <span class="news-item-time">05-11</span>
-        </a>
+          <span class="news-item-time">{{ item.createTime ? dayjs(item.createTime).format('MM-DD') : '' }}</span>
+        </NewsLink>
       </li>
     </ul>
     <ul class="news-list" v-else>
@@ -95,7 +97,8 @@ if (props?.menu?.newsTypeId) {
       text-overflow: ellipsis;
     }
     .news-item-time {
-      width: 45px;
+      width: 50px;
+      white-space: nowrap;
       text-align: right;
     }
   }

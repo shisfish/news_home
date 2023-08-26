@@ -1,5 +1,9 @@
 @import './base.css';
 
+html,body {
+  background-color: #fff;
+}
+
 #app {
   margin: 0 auto;
   font-weight: normal;
@@ -41,6 +45,13 @@ header .menu li a {
   font-size: 24px;
   color: #fff;
   text-decoration: none;
+}
+
+header .menu li a.active {
+  font-size: 24px;
+  color: #fff;
+  padding-bottom: 3px;
+  border-bottom: 2px solid #fff;
 }
 
 a {

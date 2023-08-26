@@ -1,20 +1,41 @@
 <script setup>
 import { inject, ref } from 'vue'
+import Breadcrumb from '../components/Breadcrumb.vue'
 import { getNewsInfo } from '../utils/request'
 
-// const menuList = inject('menuList')
+const menuList = inject('menuList')
+const menu = ref()
 
 const id = new URLSearchParams(location.search).get('id') * 1
 
 const newsInfo = ref({})
+const breadcrumbList = ref([])
 
 getNewsInfo(id).then((res) => {
   if (res?.flag) {
     newsInfo.value = res.data
+
+    
+
+    const menu = (menuList.value || []).find((d) => d.newsTypeId === res.data.newsTypeId)
+
+    breadcrumbList.value.push(
+      ...[
+        {
+          title: '首页',
+          link: '/'
+        },
+        {
+          title: menu.newsTypeName,
+          link: location.href
+        }
+      ]
+    )
   }
 })
 </script>
 <template>
+  <Breadcrumb :list="breadcrumbList"/>
   <div class="news-content">
     <p class="news-title">{{ newsInfo.newsTitle }}</p>
     <p class="publisher-time">发布时间：{{ newsInfo.createTime }}</p>
@@ -46,6 +67,7 @@ getNewsInfo(id).then((res) => {
 
   .news-info {
     padding: 0 15px;
+    min-height: 300px;
   }
 }
 </style>

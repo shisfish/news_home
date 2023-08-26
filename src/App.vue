@@ -15,15 +15,29 @@ getListType().then((res) => {
     menuList.value.push(...res.data)
   }
 })
+
+const isActiveMenu = (id) => {
+  if (!id) {
+    return location.pathname === '/';
+  }
+  try {
+    return (
+      location.pathname === '/news-list' && `${id}` === new URLSearchParams(location.search).get('id')
+    )
+  } catch (e) {}
+  return false
+}
 </script>
 
 <template>
   <header>
     <img src="@/assets/top.jpg" />
     <ul class="menu">
-      <li><a href="/">首页</a></li>
+      <li><a href="/" :class="`${isActiveMenu() ? 'active' : ''}`">首页</a></li>
       <li v-for="menu in menuList" v-bind:key="menu.key">
-        <a :href="`/news-list?id=${menu.newsTypeId}`">{{ menu.newsTypeName }}</a>
+        <a :href="`/news-list?id=${menu.newsTypeId}`" :class="`${isActiveMenu(menu.newsTypeId) ? 'active' : ''}`">{{
+          menu.newsTypeName
+        }}</a>
       </li>
     </ul>
   </header>

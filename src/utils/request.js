@@ -8,6 +8,12 @@ export const getNewsList = (typeId, index = 1, pageSize = 5) => {
   )
 }
 
+export const getNewsListWithImage = (typeId, index = 1, pageSize = 5) => {
+  return fetch(`/prod-api/news/pc/listNewsWithImage/${index}/${pageSize}?newsTypeId=${typeId}`).then((d) =>
+    d.json()
+  )
+}
+
 export const getNewsInfo = (newsId) => {
   return fetch(`/prod-api/news/pc/news/${newsId}`).then((d) => d.json())
 }

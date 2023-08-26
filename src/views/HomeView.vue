@@ -1,15 +1,19 @@
 <script setup>
 import { inject, ref } from 'vue'
+import dayjs from 'dayjs';
 import SwiperCore from 'swiper'
 import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
-import { getNewsList } from '../utils/request'
+import { getNewsList, getNewsListWithImage } from '../utils/request'
 
 import News from '../components/News.vue'
+import NewsLink from '../components/NewsLink.vue'
 
 import 'swiper/css'
 import 'swiper/css/autoplay'
+
+console.info(dayjs)
 
 SwiperCore.use(Autoplay)
 
@@ -24,7 +28,13 @@ if (menuList && menuList.value && menuList.value[0] && menuList.value[0]?.newsTy
     if (res?.flag) {
       const rows = res?.rows || []
       news1List.value.push(...rows)
-      mainNews.value.push(...rows.slice(0, 3))
+    }
+  })
+
+  getNewsListWithImage(menuList.value[0]?.newsTypeId).then((res) => {
+    if (res?.flag) {
+      const rows = res?.rows || []
+      mainNews.value.push(...rows)
     }
   })
 }
@@ -55,10 +65,10 @@ if (menuList && menuList.value && menuList.value[1] && menuList.value[1]?.newsTy
           :scrollbar="{ draggable: true }"
         >
           <swiper-slide v-for="item of mainNews" v-bind:key="item.newsId">
-            <a class="report-swpier-item" :href="`/news?id=${item.newsId}`">
-              <img v-bind:src="item.newsImage" />
+            <NewsLink class="report-swpier-item" :news-info="item">
+              <img v-bind:src="item.newsImage"  />
               <p>{{ item.newsTitle }}</p>
-            </a>
+            </NewsLink>
           </swiper-slide>
         </swiper>
       </div>
@@ -66,17 +76,19 @@ if (menuList && menuList.value && menuList.value[1] && menuList.value[1]?.newsTy
         <div class="report-list-header">{{ menuList[0].newsTypeName }}</div>
         <ul class="report-list">
           <li v-for="item of news1List" v-bind:key="item.newsId">
-            <a :href="`/news?id=${item.newsId}`">
+            <NewsLink :news-info="item">
               <span>{{ item.newsTitle }}</span>
-              <span class="report-time">2022-12-03</span>
-            </a>
+              <span class="report-time">{{ item.createTime ? dayjs(item.createTime).format('YYYY-MM-DD') : '' }}</span>
+            </NewsLink>
           </li>
         </ul>
         <div class="notice">
           <span class="notice-logo">{{ menuList[1].newsTypeName }}</span>
           <ul class="notice-list">
             <li v-for="item of news2List" v-bind:key="item.newsId">
-              <a :href="`/news?id=${item.newsId}`">{{ item.newsTitle }}</a>
+              <NewsLink :news-info="item">
+                {{ item.newsTitle }}
+              </NewsLink>
             </li>
           </ul>
         </div>
@@ -148,6 +160,7 @@ main {
     color: var(--color-text);
     padding-top: 16px;
     padding-bottom: 10px;
+    height: 252px;
     li {
       font-size: 17px;
       line-height: 30px;
