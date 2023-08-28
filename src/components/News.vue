@@ -11,7 +11,7 @@ const props = defineProps({
 const news = ref([])
 
 if (props?.menu?.newsTypeId) {
-  getNewsList(props?.menu?.newsTypeId, 1, 5).then((res) => {
+  getNewsList(props?.menu?.newsTypeId, 1, 8).then((res) => {
     if (res?.flag) {
       const rows = res?.rows || []
       news.value.push(...rows)

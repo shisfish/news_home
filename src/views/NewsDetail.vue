@@ -66,8 +66,11 @@ getNewsInfo(id).then((res) => {
   }
 
   .news-info {
-    padding: 0 15px;
+    padding: 0 15px 30px;
     min-height: 300px;
+    img {
+      max-width: 100%;
+    }
   }
 }
 </style>

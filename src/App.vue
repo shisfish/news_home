@@ -1,6 +1,7 @@
 <script setup>
 import { ref, provide, readonly } from 'vue'
 import { RouterView } from 'vue-router'
+import VueSelect from 'vue-select'
 import { getListType } from './utils/request'
 
 defineProps({})
@@ -18,11 +19,12 @@ getListType().then((res) => {
 
 const isActiveMenu = (id) => {
   if (!id) {
-    return location.pathname === '/';
+    return location.pathname === '/'
   }
   try {
     return (
-      location.pathname === '/news-list' && `${id}` === new URLSearchParams(location.search).get('id')
+      location.pathname === '/news-list' &&
+      `${id}` === new URLSearchParams(location.search).get('id')
     )
   } catch (e) {}
   return false
@@ -35,9 +37,11 @@ const isActiveMenu = (id) => {
     <ul class="menu">
       <li><a href="/" :class="`${isActiveMenu() ? 'active' : ''}`">首页</a></li>
       <li v-for="menu in menuList" v-bind:key="menu.key">
-        <a :href="`/news-list?id=${menu.newsTypeId}`" :class="`${isActiveMenu(menu.newsTypeId) ? 'active' : ''}`">{{
-          menu.newsTypeName
-        }}</a>
+        <a
+          :href="`/news-list?id=${menu.newsTypeId}`"
+          :class="`${isActiveMenu(menu.newsTypeId) ? 'active' : ''}`"
+          >{{ menu.newsTypeName }}</a
+        >
       </li>
     </ul>
   </header>
@@ -45,6 +49,35 @@ const isActiveMenu = (id) => {
   <RouterView v-if="menuList.length" />
 
   <footer>
+    <div class="links">
+      <VueSelect
+        placeholder="全国党建网站"
+        :value="null"
+        :clearable="false"
+        :options="[{ label: '绍兴市人民政府', code: 'http://www.sx.gov.cn/' }]"
+        style="width: 200px"
+      />
+      <VueSelect
+        placeholder="县（市）区党建网站"
+        :options="[{ label: '绍兴市人民政府', code: 'http://www.sx.gov.cn/' }]"
+        style="width: 200px"
+      />
+      <VueSelect
+        placeholder="全省政府网站"
+        :options="[{ label: '绍兴市人民政府', code: 'http://www.sx.gov.cn/' }]"
+        style="width: 200px"
+      />
+      <VueSelect
+        placeholder="市直单位网站"
+        :options="[{ label: '绍兴市人民政府', code: 'http://www.sx.gov.cn/' }]"
+        style="width: 200px"
+      />
+      <VueSelect
+        placeholder="报刊网站"
+        :options="[{ label: '绍兴市人民政府', code: 'http://www.sx.gov.cn/' }]"
+        style="width: 200px"
+      />
+    </div>
     <p>中共绍兴市委组织部 主办</p>
     <p>地址：绍兴市越城区洋江西路589号 邮编：312000 联系电话：0575－85132844</p>
     <p>浙ICP备11008497号-1</p>
@@ -68,5 +101,33 @@ footer {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  width: 1200px;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+>>> {
+  --vs-border-radius: 0;
+
+  --vs-controls-color: #ffffff;
+  --vs-border-color: #ffffff;
+
+  --vs-dropdown-bg: #fff;
+  --vs-dropdown-color: #ffffff;
+  --vs-dropdown-option-color: #333;
+
+  --vs-selected-bg: var(--color-primary);
+  --vs-selected-color: var(--color-primary);
+
+  --vs-search-input-color: #ffffff;
+
+  --vs-dropdown-option--active-bg: var(--color-primary);
+  --vs-dropdown-option--active-color: #fff;
 }
 </style>
