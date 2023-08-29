@@ -33,6 +33,7 @@
   --color-heading: var(--vt-c-text-light-1);
   --color-primary: #0168b7;
   --color-gray: #f5f6f7;
+  --el-color-primary:#0168b7 !important;
   --color-text: #333;
 
   --section-gap: 160px;

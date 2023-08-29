@@ -32,7 +32,7 @@ const isActiveMenu = (id) => {
 </script>
 
 <template>
-  <header>
+  <header v-if="menuList.length">
     <img src="@/assets/top.jpg" />
     <ul class="menu">
       <li><a href="/" :class="`${isActiveMenu() ? 'active' : ''}`">首页</a></li>
@@ -48,7 +48,7 @@ const isActiveMenu = (id) => {
 
   <RouterView v-if="menuList.length" />
 
-  <footer>
+  <footer v-if="menuList.length">
     <div class="links">
       <VueSelect
         placeholder="全国党建网站"

@@ -11,26 +11,41 @@ const id = new URLSearchParams(location.search).get('id') * 1
 const menu = ref((menuList.value || []).find((d) => d.newsTypeId === id))
 
 const news = ref([])
+const total = ref(0)
+const pageNum = ref(1)
 const breadcrumbList = ref([])
 
-if (menu.value?.newsTypeId) {
-  breadcrumbList.value.push(...[{
-    title: "首页",
-    link: "/"
-  }, {
-    title: menu.value.newsTypeName,
-    link: location.href
-  }])
-  getNewsList(menu.value?.newsTypeId, 1, 20).then((res) => {
+const refresh = (index) => {
+  getNewsList(menu.value?.newsTypeId, index, 15).then((res) => {
     if (res?.flag) {
       const rows = res?.rows || []
-      news.value.push(...rows)
+      news.value = rows
+      total.value = res?.total
+      pageNum.value = res?.pageNum
     }
   })
 }
+
+if (menu.value?.newsTypeId) {
+  breadcrumbList.value.push(
+    ...[
+      {
+        title: '首页',
+        link: '/'
+      },
+      {
+        title: menu.value.newsTypeName,
+        link: location.href
+      }
+    ]
+  )
+
+  refresh(1)
+}
+
 </script>
 <template>
-  <Breadcrumb :list="breadcrumbList"/>
+  <Breadcrumb :list="breadcrumbList" />
   <div class="news-list-content">
     <ul class="news-list">
       <li v-for="item of news" v-bind:key="item.newsId">
@@ -40,6 +55,9 @@ if (menu.value?.newsTypeId) {
         </NewsLink>
       </li>
     </ul>
+    <div class="pagination-wapper" v-if="total > 0">
+      <el-pagination background layout="prev, pager, next" :total="total" :page-size="15" @current-change="refresh"></el-pagination>
+    </div>
   </div>
 </template>
 
@@ -47,7 +65,7 @@ if (menu.value?.newsTypeId) {
 .news-list-content {
   width: 1000px;
   margin: 0 auto;
-  min-height: 500px;
+  min-height: 796px;
 
   .news-list {
     width: 100%;
@@ -73,6 +91,12 @@ if (menu.value?.newsTypeId) {
         }
       }
     }
+  }
+
+  .pagination-wapper {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 50px;
   }
 }
 </style>
