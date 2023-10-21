@@ -51,7 +51,7 @@ if (menu.value?.newsTypeId) {
       <li v-for="item of news" v-bind:key="item.newsId">
         <NewsLink :news-info="item">
           <p>{{ item.newsTitle }}</p>
-          <span>{{ item.createTime }}</span>
+          <span>{{ item.publishTime }}</span>
         </NewsLink>
       </li>
     </ul>

@@ -38,7 +38,7 @@ getNewsInfo(id).then((res) => {
   <Breadcrumb :list="breadcrumbList"/>
   <div class="news-content">
     <p class="news-title">{{ newsInfo.newsTitle }}</p>
-    <p class="publisher-time">发布时间：{{ newsInfo.createTime }}</p>
+    <p class="publisher-time">发布时间：{{ newsInfo.publishTime }}</p>
     <div v-html="newsInfo.newsContent" class="news-info"></div>
   </div>
 </template>

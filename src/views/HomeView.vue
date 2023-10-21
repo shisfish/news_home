@@ -77,7 +77,7 @@ if (menuList && menuList.value && menuList.value[1] && menuList.value[1]?.newsTy
             <NewsLink :news-info="item">
               <span>{{ item.newsTitle }}</span>
               <span class="report-time">{{
-                item.createTime ? dayjs(item.createTime).format('YYYY-MM-DD') : ''
+                item.publishTime ? dayjs(item.publishTime).format('YYYY-MM-DD') : ''
               }}</span>
             </NewsLink>
           </li>
