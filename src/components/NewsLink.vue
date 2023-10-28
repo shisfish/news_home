@@ -5,7 +5,8 @@ defineProps({
 </script>
 
 <template>
-  <a target="_blank" :href="`${newsInfo.link}`" v-if="newsInfo.type === 2"><slot /></a>
+<!--  <a target="_blank" :href="`${newsInfo.link}`" v-if="newsInfo.type === 2"><slot /></a>-->
+  <a target="_blank" :href="`/resource/html/${newsInfo.newsId}/${newsInfo.newsId}.html`" v-if="newsInfo.type === 2"><slot /></a>
   <a target="_blank" :href="`./news?id=${newsInfo.newsId}`" v-else><slot /></a>
 </template>
 

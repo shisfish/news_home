@@ -19,11 +19,11 @@ getListType().then((res) => {
 
 const isActiveMenu = (id) => {
   if (!id) {
-    return location.pathname === '/home/'
+    return location.pathname === '/'
   }
   try {
     return (
-      location.pathname === '/home/news-list' &&
+      location.pathname === '/news-list' &&
       `${id}` === new URLSearchParams(location.search).get('id')
     )
   } catch (e) {}
