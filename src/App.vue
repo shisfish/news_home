@@ -109,14 +109,6 @@ const isActiveMenu = (id) => {
   <RouterView v-if="menuList.length" />
 
   <footer v-if="menuList.length">
-    <div class="links">
-      <span>友情链接：</span>
-      <a href="http://cpc.people.com.cn/" target="_blank">中国共产党新闻网</a>
-      <a href="https://www.12371.cn/" target="_blank">共产党员网</a>
-      <a href="http://www.zjzzgz.gov.cn/" target="_blank">浙江组织工作网</a>
-      <a href="https://www.xuexi.cn/">学习强国</a>
-      <a href="http://www.people.com.cn/">人民网</a>
-    </div>
     <p>中共绍兴市委组织部 主办</p>
     <p>地址：绍兴市越城区洋江西路589号 邮编：312000 联系电话：0575－85132844</p>
     <p>浙ICP备11008497号-1</p>

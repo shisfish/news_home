@@ -120,6 +120,15 @@ if (menuList && menuList.value && menuList.value[1] && menuList.value[1]?.newsTy
             <p>“绍兴组工”公众号</p>
           </li>
         </ul>
+        <p class="service-section-title">友情链接</p>
+        <div class="links">
+          <a href="http://cpc.people.com.cn/" target="_blank">中国共产党新闻网</a>
+          <a href="https://www.12371.cn/" target="_blank">共产党员网</a>
+          <br/>
+          <a href="http://www.zjzzgz.gov.cn/" target="_blank">浙江组织工作网</a>
+          <a href="https://www.xuexi.cn/">学习强国</a>
+          <a href="http://www.people.com.cn/">人民网</a>
+        </div>
       </div>
     </div>
   </main>
@@ -281,17 +290,18 @@ main {
 
 .service-section {
   width: calc(33% - 15px);
-  height: 179px;
+  height: 250px;
   margin-top: 32px;
   margin-left: 15px;
   border: 1px solid var(--color-primary);
-  padding: 12px 25px 25px;
+  padding: 2px 25px 25px;
   background-color: #f5f5f5;
   .service-section-title {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     color: var(--color-primary);
     margin-bottom: 5px;
+    margin-top: 10px;
   }
   ul {
     display: flex;
@@ -325,6 +335,12 @@ main {
         padding-top: 5px;
       }
     }
+  }
+}
+
+.links {
+  a {
+    padding-right: 15px;
   }
 }
 </style>
