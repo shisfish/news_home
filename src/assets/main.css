@@ -8,7 +8,7 @@ html,body {
 #app {
   margin: 0 auto;
   font-weight: normal;
-  min-width: 1280px
+  min-width: 1180px;
 }
 
 ul {
@@ -27,7 +27,7 @@ header img {
 
 header .menu {
   background-color: #0168b7;
-  height: 75px;
+  height: 45px;
   width: 100%;
   display: flex;
   color: #fff;
@@ -43,13 +43,13 @@ header .menu li {
 }
 
 header .menu li a {
-  font-size: 24px;
+  font-size: 16px;
   color: #fff;
   text-decoration: none;
 }
 
 header .menu li a.active {
-  font-size: 24px;
+  font-size: 16px;
   color: #fff;
   padding-bottom: 3px;
   border-bottom: 2px solid #fff;

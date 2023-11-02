@@ -73,7 +73,7 @@ if (menu.value?.newsTypeId) {
     flex-direction: column;
     padding: 0 0 20px 0;
     li {
-      padding: 10px 0;
+      padding: 7px 0;
       display: flex;
       flex-direction: row;
       width: 100%;
@@ -81,7 +81,7 @@ if (menu.value?.newsTypeId) {
         width: 100%;
         display: flex;
         flex-direction: row;
-        font-size: 16px;
+        font-size: 14px;
         color: #333;
         p {
           flex: 1;

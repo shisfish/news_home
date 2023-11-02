@@ -2,7 +2,7 @@
 import { inject, ref } from 'vue'
 import dayjs from 'dayjs'
 import SwiperCore from 'swiper'
-import { Autoplay } from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 import { getNewsList, getNewsListWithImage } from '../utils/request'
@@ -12,8 +12,10 @@ import NewsLink from '../components/NewsLink.vue'
 
 import 'swiper/css'
 import 'swiper/css/autoplay'
+import 'swiper/css/pagination'
 
 SwiperCore.use(Autoplay)
+SwiperCore.use(Pagination)
 
 const menuList = inject('menuList')
 
@@ -55,6 +57,7 @@ if (menuList && menuList.value && menuList.value[1] && menuList.value[1]?.newsTy
           v-if="mainNews.length"
           :modules="modules"
           :slides-per-view="1"
+          :pagination="{ clickable: true }"
           :autoplay="{
             delay: 2500,
             disableOnInteraction: false
@@ -122,9 +125,16 @@ if (menuList && menuList.value && menuList.value[1] && menuList.value[1]?.newsTy
   </main>
 </template>
 
-<style scoped lang="scss">
+<!-- <style>
+ .swiper-pagination {
+    top: 300px;
+    display: none !important;
+  }
+</style> -->
+
+<style lang="scss">
 main {
-  width: 1280px;
+  width: 1180px;
   margin: 0 auto;
   padding-top: 14px;
 }
@@ -134,11 +144,29 @@ main {
 }
 
 .report-swpier {
-  width: 750px;
-  height: 450px;
+  width: 650px;
+  height: 345px;
+
+  .swiper-pagination {
+    top: 270px;
+
+    .swiper-pagination-bullet {
+      border-radius: 0;
+      width: 10px;
+      height: 10px;
+      background-color: #999;
+      opacity: 0.8;
+
+      &.swiper-pagination-bullet-active {
+        background-color: var(--color-primary);
+        opacity: 1;
+      }
+    }
+  }
+
   .report-swpier-item {
-    width: 750px;
-    height: 450px;
+    width: 650px;
+    height: 345px;
     position: relative;
     display: inline-block;
     img {
@@ -172,7 +200,7 @@ main {
   padding-left: 15px;
   width: 530px;
   .report-list-header {
-    font-size: 26px;
+    font-size: 20px;
     border-bottom: 1px solid var(--color-primary);
   }
   .report-list {
@@ -181,10 +209,10 @@ main {
     color: var(--color-text);
     padding-top: 10px;
     padding-bottom: 10px;
-    height: 322px;
+    height: 240px;
     li {
-      font-size: 17px;
-      line-height: 38px;
+      font-size: 14px;
+      line-height: 28px;
       a {
         display: flex;
         flex-direction: row;
@@ -211,7 +239,7 @@ main {
 .notice {
   border: 1px solid var(--color-primary);
   width: 100%;
-  height: 85px;
+  height: 72px;
   padding: 5px;
   display: flex;
   align-items: center;
@@ -219,14 +247,14 @@ main {
   background-color: var(--color-gray);
   .notice-logo {
     display: inline-block;
-    height: 75px;
-    width: 86px;
+    height: 62px;
+    width: 62px;
     background-color: var(--color-primary);
     color: #fff;
-    font-size: 24px;
+    font-size: 16px;
     padding: 5px 8px;
     text-align: center;
-    line-height: 32px;
+    line-height: 27px;
   }
   .notice-list {
     flex: 1;
@@ -236,7 +264,7 @@ main {
     justify-content: space-around;
     padding: 10px;
     li {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bold;
       a {
         color: var(--color-text);
@@ -252,15 +280,18 @@ main {
 }
 
 .service-section {
-  width: 33%;
-  height: 192px;
+  width: calc(33% - 15px);
+  height: 179px;
+  margin-top: 32px;
+  margin-left: 15px;
   border: 1px solid var(--color-primary);
-  padding: 17px 25px 25px;
+  padding: 12px 25px 25px;
   background-color: #f5f5f5;
   .service-section-title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
     color: var(--color-primary);
+    margin-bottom: 5px;
   }
   ul {
     display: flex;

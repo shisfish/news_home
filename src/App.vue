@@ -7,6 +7,7 @@ import { getListType } from './utils/request'
 defineProps({})
 
 const menuList = ref([])
+const isHomePage = ref(false)
 
 provide('menuList', readonly(menuList))
 
@@ -16,6 +17,10 @@ getListType().then((res) => {
     menuList.value.push(...res.data)
   }
 })
+
+if (location.pathname === '/') {
+  isHomePage.value = true;
+}
 
 const isActiveMenu = (id) => {
   if (!id) {
@@ -32,6 +37,61 @@ const isActiveMenu = (id) => {
 </script>
 
 <template>
+  <div v-if="menuList.length &&  isHomePage" class="top-nav">
+    <div class="top-nav-list">
+      <img src="@/assets/log_h2.jpg" />
+      <ul>
+        <li>
+          <a href="https://www.12371.cn/2023/10/16/ARTI1697453701997391.shtml" target="_blank"
+            >习近平文化思想学习知识点</a
+          >&ensp;<a href="https://www.12371.cn/special/xxzd/hxnr/wh/" target="_blank">学习专栏</a>
+        </li>
+        <li>
+          <a href="https://www.12371.cn/2023/11/02/ARTI1698883073271621.shtml" target="_blank"
+            >学习贯彻中央金融工作会议精神</a
+          >
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a href="https://www.12371.cn/xxsx/" target="_blank">主题教育 | </a>
+          <a href="https://www.12371.cn/2023/08/17/ARTI1692254909776275.shtml" target="_blank"
+            >学习资料</a
+          >
+          <a href="https://www.12371.cn/xxsx/yskt/" target="_blank">有声课堂</a>
+          <a href="https://www.12371.cn/2023/06/09/ARTI1686278996739431.shtml" target="_blank"
+            >系列问答</a
+          >
+        </li>
+        <li>
+          <a href="https://www.12371.cn/special/zzgz/" target="_blank"
+            >《组织工作新担当新作为》学习专题</a
+          >
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a href="https://www.12371.cn/2023/10/31/ARTI1698717851016285.shtml" target="_blank"
+            >学习推广“四下基层”优良传统</a
+          >
+        </li>
+        <li>
+          <a href="https://www.12371.cn/special/20da/bg/" target="_blank">二十大报告</a>&ensp;
+          <a href="https://www.12371.cn/special/zggcdzc/" target="_blank"> 二十大党章学习课件</a>
+        </li>
+      </ul>
+    </div>
+    <div class="top-nav-menu-wapper">
+      <div class="top-nav-menu">
+        <img src="@/assets/logo_h1.jpg" />
+        <div class="head-return">
+          <a href="http://dwlm.12371.cn/">返回联盟首页</a>
+          <span>|</span>
+          <a href="http://www.12371.cn/" target="_blank">共产党员网 </a>
+        </div>
+      </div>
+    </div>
+  </div>
   <header v-if="menuList.length">
     <img src="@/assets/top.jpg" />
     <ul class="menu">
@@ -50,33 +110,12 @@ const isActiveMenu = (id) => {
 
   <footer v-if="menuList.length">
     <div class="links">
-      <VueSelect
-        placeholder="全国党建网站"
-        :value="null"
-        :clearable="false"
-        :options="[{ label: '绍兴市人民政府', code: 'http://www.sx.gov.cn/' }]"
-        style="width: 200px"
-      />
-      <VueSelect
-        placeholder="县（市）区党建网站"
-        :options="[{ label: '绍兴市人民政府', code: 'http://www.sx.gov.cn/' }]"
-        style="width: 200px"
-      />
-      <VueSelect
-        placeholder="全省政府网站"
-        :options="[{ label: '绍兴市人民政府', code: 'http://www.sx.gov.cn/' }]"
-        style="width: 200px"
-      />
-      <VueSelect
-        placeholder="市直单位网站"
-        :options="[{ label: '绍兴市人民政府', code: 'http://www.sx.gov.cn/' }]"
-        style="width: 200px"
-      />
-      <VueSelect
-        placeholder="报刊网站"
-        :options="[{ label: '绍兴市人民政府', code: 'http://www.sx.gov.cn/' }]"
-        style="width: 200px"
-      />
+      <span>友情链接：</span>
+      <a href="http://cpc.people.com.cn/" target="_blank">中国共产党新闻网</a>
+      <a href="https://www.12371.cn/" target="_blank">共产党员网</a>
+      <a href="http://www.zjzzgz.gov.cn/" target="_blank">浙江组织工作网</a>
+      <a href="https://www.xuexi.cn/">学习强国</a>
+      <a href="http://www.people.com.cn/">人民网</a>
     </div>
     <p>中共绍兴市委组织部 主办</p>
     <p>地址：绍兴市越城区洋江西路589号 邮编：312000 联系电话：0575－85132844</p>
@@ -86,6 +125,7 @@ const isActiveMenu = (id) => {
 </template>
 
 <style scoped>
+
 header {
   line-height: 1.5;
 }
@@ -107,9 +147,87 @@ footer {
   display: flex;
   align-items: center;
   width: 1200px;
-  justify-content: space-around;
+  justify-content: center;
   margin-bottom: 30px;
   margin-top: 10px;
+}
+
+.links span,
+a {
+  color: #df233e;
+  padding: 0 5px;
+  display: inline-block;
+}
+
+.links a {
+  color: #fff;
+}
+
+.top-nav {
+  background-color: #eee;
+}
+
+.top-nav-list {
+  height: 60px;
+  margin: 0 auto;
+  display: flex;
+  width: 1180px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-nav-list ul {
+  padding: 0 10px;
+}
+
+.top-nav-list ul li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10px;
+}
+.top-nav-list ul li::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: #666;
+}
+
+.top-nav-list ul li a {
+  color: #666;
+  font-size: 12px;
+}
+
+.top-nav-menu-wapper {
+  width: 100%;
+  height: 63px;
+  background-color: #f6b84b;
+}
+
+.top-nav-menu {
+  height: 63px;
+  width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.head-return {
+  margin-top: 25px;
+}
+
+.head-return span {
+  color: #1f6ead;
+}
+
+.head-return a {
+  color: #151b20;
+  font-size: 12px;
+  padding: 0 10px;
 }
 
 >>> {

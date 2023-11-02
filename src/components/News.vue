@@ -61,12 +61,12 @@ if (props?.menu?.newsTypeId) {
 
 .news-title {
   border-bottom: 1px solid var(--color-primary);
-  padding-left: 15px;
+  padding-left: 0;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   span {
-    font-size: 26px;
+    font-size: 20px;
     color: var(--color-primary);
   }
   a {
@@ -80,7 +80,7 @@ if (props?.menu?.newsTypeId) {
   padding-top: 5px;
   min-height: 200px;
   .news-item {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 30px;
     display: flex;
     flex-direction: row;
