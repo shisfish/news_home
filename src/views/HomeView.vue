@@ -122,12 +122,12 @@ if (menuList && menuList.value && menuList.value[1] && menuList.value[1]?.newsTy
         </ul>
         <p class="service-section-title">友情链接</p>
         <div class="links">
-          <a href="http://cpc.people.com.cn/" target="_blank">中国共产党新闻网</a>
+          <a href="http://cpc.people.com.cn/" target="_blank" style="padding-right: 100px;">中国共产党新闻网</a>
           <a href="https://www.12371.cn/" target="_blank">共产党员网</a>
-          <br/>
-          <a href="http://www.zjzzgz.gov.cn/" target="_blank">浙江组织工作网</a>
-          <a href="https://www.xuexi.cn/">学习强国</a>
-          <a href="http://www.people.com.cn/">人民网</a>
+          <br>
+          <a href="http://www.zjzzgz.gov.cn/" target="_blank" style="padding-right: 32px;">浙江组织工作网</a>
+          <a href="https://www.xuexi.cn/" target="_blank" style="padding-right: 50px;">学习强国</a>
+          <a href="http://www.people.com.cn/" target="_blank">人民网</a>
         </div>
       </div>
     </div>
