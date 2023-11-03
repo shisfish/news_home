@@ -30,7 +30,7 @@ if (props?.menu?.newsTypeId) {
       <li class="news-item" v-for="item of news" v-bind:key="item.newsId">
         <NewsLink :news-info="item">
           <span class="news-item-content">{{ item.newsTitle }}</span>
-          <span class="news-item-time">{{ item.publishTime ? dayjs(item.publishTime).format('MM-DD') : '' }}</span>
+          <!-- <span class="news-item-time">{{ item.publishTime ? dayjs(item.publishTime).format('MM-DD') : '' }}</span> -->
         </NewsLink>
       </li>
     </ul>

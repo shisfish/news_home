@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { getNewsList, getNewsListWithImage } from '../utils/request'
 
 import News from '../components/News.vue'
+import Subject from '../components/Subject.vue'
 import NewsLink from '../components/NewsLink.vue'
 
 import 'swiper/css'
@@ -47,6 +48,8 @@ if (menuList && menuList.value && menuList.value[1] && menuList.value[1]?.newsTy
     }
   })
 }
+
+console.log(menuList[6]);
 </script>
 
 <template>
@@ -100,7 +103,10 @@ if (menuList && menuList.value && menuList.value[1] && menuList.value[1]?.newsTy
     <img src="@/assets/1.jpg" style="width: 100%; margin: 20px 0" />
     <div class="news-wapper">
       <News v-for="item of menuList.slice(2)" v-bind:key="item.newsTypeId" :menu="item" />
-      <div class="service-section">
+      <Subject />
+    </div>
+    <div class="service-section">
+      <div class="service-section-item">
         <p class="service-section-title">服务之窗</p>
         <ul>
           <li>
@@ -110,7 +116,7 @@ if (menuList && menuList.value && menuList.value[1] && menuList.value[1]?.newsTy
             </a>
           </li>
           <li>
-            <a href="http://www.zjce.gov.cn/" target="_blank" >
+            <a href="http://www.zjce.gov.cn/" target="_blank">
               <img src="@/assets/logo2.jpg" />
               <p>领导干部网络学院</p>
             </a>
@@ -120,14 +126,19 @@ if (menuList && menuList.value && menuList.value[1] && menuList.value[1]?.newsTy
             <p>“绍兴组工”公众号</p>
           </li>
         </ul>
+      </div>
+      <div class="service-section-item">
         <p class="service-section-title">友情链接</p>
         <div class="links">
-          <a href="http://cpc.people.com.cn/" target="_blank">中国共产党新闻网</a>
-          <a href="https://www.12371.cn/" target="_blank">共产党员网</a>
-          <br/>
-          <a href="http://www.zjzzgz.gov.cn/" target="_blank">浙江组织工作网</a>
-          <a href="https://www.xuexi.cn/">学习强国</a>
-          <a href="http://www.people.com.cn/">人民网</a>
+          <a href="http://cpc.people.com.cn/">中国共产党新闻网</a
+          ><a href="http://www.zjsdxf.cn/">浙江省党员干部现代远程教育网</a
+          ><a href="http://www.hzdj.gov.cn/">杭州党建网</a
+          ><a href="http://www.dfdj.gov.cn/">宁波东方党建网</a
+          ><a href="http://www.wzdj.gov.cn/">温州党建网</a
+          ><a href="http://zzb.huzhou.gov.cn/">湖州组织工作网</a
+          ><a href="http://www.sxdj.gov.cn/">绍兴党建网</a
+          ><a href="http://www.qzdj.gov.cn/">衢州党建网</a
+          ><a href="http://www.zsdj.gov.cn/">舟山党建网</a>
         </div>
       </div>
     </div>
@@ -289,13 +300,23 @@ main {
 }
 
 .service-section {
-  width: calc(33% - 15px);
-  height: 250px;
-  margin-top: 32px;
-  margin-left: 15px;
+  width: 100%;
+  height: 176px;
+  margin-bottom: 20px;
   border: 1px solid var(--color-primary);
-  padding: 2px 25px 25px;
-  background-color: #f5f5f5;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+
+  .service-section-item:first-child {
+    border-right: 1px solid var(--color-primary);
+    width: 406px;
+  }
+
+  .service-section-item {
+    height: 100%;
+    padding: 2px 25px 25px;
+  }
   .service-section-title {
     font-size: 18px;
     font-weight: 500;
@@ -307,6 +328,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 355px;
     li {
       width: 103px;
       height: 103px;
@@ -339,8 +361,20 @@ main {
 }
 
 .links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   a {
+    width: 25%;
     padding-right: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    height: 27px;
+    line-height: 27px;
+    font-size: 14px;
+    color: #5c5b5b;
   }
 }
 </style>
