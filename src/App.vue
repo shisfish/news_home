@@ -93,7 +93,7 @@ const isActiveMenu = (id) => {
     </div>
   </div>
   <header v-if="menuList.length">
-    <img src="@/assets/top.jpg" />
+    <div class="top-logo"></div>
     <ul class="menu">
       <li><a href="./" :class="`${isActiveMenu() ? 'active' : ''}`">首页</a></li>
       <li v-for="menu in menuList" v-bind:key="menu.key">
@@ -120,6 +120,14 @@ const isActiveMenu = (id) => {
 
 header {
   line-height: 1.5;
+}
+
+.top-logo {
+  background-image: url('@/assets/top.jpg');
+  background-size: cover;
+  background-position: center;
+  padding-top: 7%;
+  background-repeat: no-repeat;
 }
 
 footer {

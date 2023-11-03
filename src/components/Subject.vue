@@ -10,11 +10,23 @@ const props = defineProps({
 
 const news = ref([
   {
-    img: 'http://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web2766/site/picture/0/2107221148164233700.jpg',
+    img: 'http://101.34.59.38/static/top-116d877f.jpg',
     url: 'https://mp.weixin.qq.com/s?__biz=MzIxNDUyMzcwOA==&mid=2247840784&idx=1&sn=cca2397bb5b3144f7b750643c9fdacbe&chksm=97a9be43a0de3755853fed356c6b93411c56fcd5a7ecaa1a028053ab89641b34ff39c9c43476#rd'
   },
   {
-    img: 'http://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web2766/site/picture/0/s2107220554065918322.png',
+    img: 'http://101.34.59.38/static/top-116d877f.jpg',
+    url: 'https://mp.weixin.qq.com/s?__biz=MzIxNDUyMzcwOA==&mid=2247840784&idx=1&sn=cca2397bb5b3144f7b750643c9fdacbe&chksm=97a9be43a0de3755853fed356c6b93411c56fcd5a7ecaa1a028053ab89641b34ff39c9c43476#rd'
+  },
+  {
+    img: 'http://101.34.59.38/static/top-116d877f.jpg',
+    url: 'https://mp.weixin.qq.com/s?__biz=MzIxNDUyMzcwOA==&mid=2247840784&idx=1&sn=cca2397bb5b3144f7b750643c9fdacbe&chksm=97a9be43a0de3755853fed356c6b93411c56fcd5a7ecaa1a028053ab89641b34ff39c9c43476#rd'
+  },
+  {
+    img: 'http://101.34.59.38/static/top-116d877f.jpg',
+    url: 'https://mp.weixin.qq.com/s?__biz=MzIxNDUyMzcwOA==&mid=2247840784&idx=1&sn=cca2397bb5b3144f7b750643c9fdacbe&chksm=97a9be43a0de3755853fed356c6b93411c56fcd5a7ecaa1a028053ab89641b34ff39c9c43476#rd'
+  },
+  {
+    img: 'http://101.34.59.38/static/top-116d877f.jpg',
     url: 'https://mp.weixin.qq.com/s?__biz=MzIxNDUyMzcwOA==&mid=2247840784&idx=1&sn=cca2397bb5b3144f7b750643c9fdacbe&chksm=97a9be43a0de3755853fed356c6b93411c56fcd5a7ecaa1a028053ab89641b34ff39c9c43476#rd'
   }
 ])
@@ -84,6 +96,7 @@ const news = ref([
     line-height: 30px;
     display: flex;
     flex-direction: row;
+    height: 44px;
     & + .news-item {
       margin-top: 5px;
     }
@@ -93,6 +106,9 @@ const news = ref([
       width: 100%;
       flex-direction: row;
       color: var(--color-text);
+      img {
+        object-fit: cover;
+      }
     }
     .news-item-content {
       flex: 1;
