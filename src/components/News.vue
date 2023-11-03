@@ -66,8 +66,10 @@ if (props?.menu?.newsTypeId) {
   align-items: baseline;
   justify-content: space-between;
   span {
-    font-size: 20px;
-    color: var(--color-primary);
+    font-size: 19px;
+    color: #fff;
+    background-color: var(--color-primary);
+    padding: 0 4px;
   }
   a {
     font-size: 16px;

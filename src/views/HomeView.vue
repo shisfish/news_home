@@ -77,7 +77,7 @@ console.log(menuList[6]);
         </swiper>
       </div>
       <div class="report-part" v-if="menuList[0]">
-        <div class="report-list-header">{{ menuList[0].newsTypeName }}</div>
+        <div class="report-list-header"><span>{{ menuList[0].newsTypeName }}</span></div>
         <ul class="report-list">
           <li v-for="item of news1List" v-bind:key="item.newsId">
             <NewsLink :news-info="item">
@@ -222,6 +222,13 @@ main {
   .report-list-header {
     font-size: 20px;
     border-bottom: 1px solid var(--color-primary);
+    span {
+      background-color: var(--color-primary);
+      font-size: 19px;
+      padding: 0 4px;
+      display: inline-block;
+      color: #fff;
+    }
   }
   .report-list {
     list-style: none;
