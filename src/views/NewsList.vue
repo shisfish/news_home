@@ -1,5 +1,6 @@
 <script setup>
 import { inject, ref } from 'vue'
+import dayjs from 'dayjs'
 import { getNewsList } from '../utils/request'
 import NewsLink from '../components/NewsLink.vue'
 import Breadcrumb from '../components/Breadcrumb.vue'
@@ -8,7 +9,10 @@ const menuList = inject('menuList')
 
 const id = new URLSearchParams(location.search).get('id') * 1
 
-const menu = ref((menuList.value || []).find((d) => d.newsTypeId === id))
+const subject = new URLSearchParams(location.search).get('subject') * 1
+
+const menu = ref((menuList.value || []).find((d) =>
+  d.newsTypeId === id))
 
 const news = ref([])
 const total = ref(0)
@@ -16,7 +20,7 @@ const pageNum = ref(1)
 const breadcrumbList = ref([])
 
 const refresh = (index) => {
-  getNewsList(menu.value?.newsTypeId, index, 15).then((res) => {
+  getNewsList(menu.value?.newsTypeId, subject, index, 15).then((res) => {
     if (res?.flag) {
       const rows = res?.rows || []
       news.value = rows
@@ -39,7 +43,32 @@ if (menu.value?.newsTypeId) {
       }
     ]
   )
-
+  refresh(1)
+} else {
+  let subjectTitle;
+  if (subject === 1) {
+    subjectTitle = "专题专栏 > 组工锐评"
+  } else if (subject === 2) {
+    subjectTitle = "专题专栏 > 人才增值服务"
+  } else if (subject === 3) {
+    subjectTitle = "专题专栏 > “天天有感”党群服务中心展播"
+  } else if (subject === 4) {
+    subjectTitle = "专题专栏 > 和美争创 三百计划"
+  } else if (subject === 5) {
+    subjectTitle = "专题专栏 > 担当作为好干部风采录"
+  }
+  breadcrumbList.value.push(
+      ...[
+        {
+          title: '首页',
+          link: '/'
+        },
+        {
+          title: subjectTitle,
+          link: location.href
+        }
+      ]
+  )
   refresh(1)
 }
 
@@ -51,7 +80,7 @@ if (menu.value?.newsTypeId) {
       <li v-for="item of news" v-bind:key="item.newsId">
         <NewsLink :news-info="item">
           <p>{{ item.newsTitle }}</p>
-          <span>{{ item.publishTime }}</span>
+          <span>{{ item.publishTime ? dayjs(item.publishTime).format('YYYY-MM-DD') : '' }}</span>
         </NewsLink>
       </li>
     </ul>

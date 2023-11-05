@@ -25,7 +25,7 @@ const news1List = ref([])
 const news2List = ref([])
 
 if (menuList && menuList.value && menuList.value[0] && menuList.value[0]?.newsTypeId) {
-  getNewsList(menuList.value[0]?.newsTypeId, 1, 10).then((res) => {
+  getNewsList(menuList.value[0]?.newsTypeId, undefined, 1, 10).then((res) => {
     if (res?.flag) {
       const rows = (res?.rows || []).slice(0, 8)
       news1List.value.push(...rows)
@@ -41,7 +41,7 @@ if (menuList && menuList.value && menuList.value[0] && menuList.value[0]?.newsTy
 }
 
 if (menuList && menuList.value && menuList.value[1] && menuList.value[1]?.newsTypeId) {
-  getNewsList(menuList.value[1]?.newsTypeId, 1, 2).then((res) => {
+  getNewsList(menuList.value[1]?.newsTypeId, undefined, 1, 2).then((res) => {
     if (res?.flag) {
       const rows = res?.rows || []
       news2List.value.push(...rows)

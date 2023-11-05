@@ -11,23 +11,23 @@ const props = defineProps({
 const news = ref([
   {
     img: '/resource/zhuanti/zgrp.jpg',
-    url: ''
+    url: '/news-list?subject=1'
   },
   {
     img: '/resource/zhuanti/rczz.jpg',
-    url: ''
+    url: '/news-list?subject=2'
   },
   {
     img: '/resource/zhuanti/ttyg.jpg',
-    url: ''
+    url: '/news-list?subject=3'
   },
   {
     img: '/resource/zhuanti/hmzc.jpg',
-    url: ''
+    url: '/news-list?subject=4'
   },
   {
     img: '/resource/zhuanti/hgb.jpg',
-    url: ''
+    url: '/news-list?subject=5'
   }
 ])
 </script>
@@ -39,9 +39,9 @@ const news = ref([
     </p>
     <ul class="news-list" v-if="news.length">
       <li class="news-item" v-for="item of news" v-bind:key="item.img">
-<!--        <a :href="`${item.url}`">-->
+        <a :href="`${item.url}`">
           <img :src="`${item.img}`" style="width: 100%;"/>
-<!--        </a>-->
+        </a>
       </li>
     </ul>
     <ul class="news-list" v-else>
