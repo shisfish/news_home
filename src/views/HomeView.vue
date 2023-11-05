@@ -82,9 +82,9 @@ console.log(menuList[6]);
           <li v-for="item of news1List" v-bind:key="item.newsId">
             <NewsLink :news-info="item">
               <span>{{ item.newsTitle }}</span>
-              <span class="report-time">{{
-                item.publishTime ? dayjs(item.publishTime).format('YYYY-MM-DD') : ''
-              }}</span>
+<!--              <span class="report-time">{{-->
+<!--                item.publishTime ? dayjs(item.publishTime).format('YYYY-MM-DD') : ''-->
+<!--              }}</span>-->
             </NewsLink>
           </li>
         </ul>
@@ -130,15 +130,11 @@ console.log(menuList[6]);
       <div class="service-section-item">
         <p class="service-section-title">友情链接</p>
         <div class="links">
-          <a href="http://cpc.people.com.cn/">中国共产党新闻网</a
-          ><a href="http://www.zjsdxf.cn/">浙江省党员干部现代远程教育网</a
-          ><a href="http://www.hzdj.gov.cn/">杭州党建网</a
-          ><a href="http://www.dfdj.gov.cn/">宁波东方党建网</a
-          ><a href="http://www.wzdj.gov.cn/">温州党建网</a
-          ><a href="http://zzb.huzhou.gov.cn/">湖州组织工作网</a
-          ><a href="http://www.sxdj.gov.cn/">绍兴党建网</a
-          ><a href="http://www.qzdj.gov.cn/">衢州党建网</a
-          ><a href="http://www.zsdj.gov.cn/">舟山党建网</a>
+          <a href="https://cpc.people.com.cn/">中国共产党新闻网</a>
+          <a href="https://www.12371.cn/">共产党员网</a>
+          <a href="http://www.zjzzgz.gov.cn/">浙江组织工作网</a>
+          <a href="https://www.xuexi.cn/">学习强国</a>
+          <a href="http://www.people.com.cn/">人民网</a>
         </div>
       </div>
     </div>
@@ -247,7 +243,7 @@ main {
         color: var(--color-text);
       }
       span {
-        width: 415px;
+        //width: 415px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
