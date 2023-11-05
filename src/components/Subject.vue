@@ -10,24 +10,24 @@ const props = defineProps({
 
 const news = ref([
   {
-    img: 'http://101.34.59.38/static/top-116d877f.jpg',
-    url: 'https://mp.weixin.qq.com/s?__biz=MzIxNDUyMzcwOA==&mid=2247840784&idx=1&sn=cca2397bb5b3144f7b750643c9fdacbe&chksm=97a9be43a0de3755853fed356c6b93411c56fcd5a7ecaa1a028053ab89641b34ff39c9c43476#rd'
+    img: '/resource/zhuanti/zgrp.jpg',
+    url: ''
   },
   {
-    img: 'http://101.34.59.38/static/top-116d877f.jpg',
-    url: 'https://mp.weixin.qq.com/s?__biz=MzIxNDUyMzcwOA==&mid=2247840784&idx=1&sn=cca2397bb5b3144f7b750643c9fdacbe&chksm=97a9be43a0de3755853fed356c6b93411c56fcd5a7ecaa1a028053ab89641b34ff39c9c43476#rd'
+    img: '/resource/zhuanti/rczz.jpg',
+    url: ''
   },
   {
-    img: 'http://101.34.59.38/static/top-116d877f.jpg',
-    url: 'https://mp.weixin.qq.com/s?__biz=MzIxNDUyMzcwOA==&mid=2247840784&idx=1&sn=cca2397bb5b3144f7b750643c9fdacbe&chksm=97a9be43a0de3755853fed356c6b93411c56fcd5a7ecaa1a028053ab89641b34ff39c9c43476#rd'
+    img: '/resource/zhuanti/ttyg.jpg',
+    url: ''
   },
   {
-    img: 'http://101.34.59.38/static/top-116d877f.jpg',
-    url: 'https://mp.weixin.qq.com/s?__biz=MzIxNDUyMzcwOA==&mid=2247840784&idx=1&sn=cca2397bb5b3144f7b750643c9fdacbe&chksm=97a9be43a0de3755853fed356c6b93411c56fcd5a7ecaa1a028053ab89641b34ff39c9c43476#rd'
+    img: '/resource/zhuanti/hmzc.jpg',
+    url: ''
   },
   {
-    img: 'http://101.34.59.38/static/top-116d877f.jpg',
-    url: 'https://mp.weixin.qq.com/s?__biz=MzIxNDUyMzcwOA==&mid=2247840784&idx=1&sn=cca2397bb5b3144f7b750643c9fdacbe&chksm=97a9be43a0de3755853fed356c6b93411c56fcd5a7ecaa1a028053ab89641b34ff39c9c43476#rd'
+    img: '/resource/zhuanti/hgb.jpg',
+    url: ''
   }
 ])
 </script>
@@ -39,9 +39,9 @@ const news = ref([
     </p>
     <ul class="news-list" v-if="news.length">
       <li class="news-item" v-for="item of news" v-bind:key="item.img">
-        <a :href="`${item.url}`">
+<!--        <a :href="`${item.url}`">-->
           <img :src="`${item.img}`" style="width: 100%;"/>
-        </a>
+<!--        </a>-->
       </li>
     </ul>
     <ul class="news-list" v-else>
