@@ -127,14 +127,14 @@ console.log(menuList[6]);
           </li>
         </ul>
       </div>
-      <div class="service-section-item">
+      <div class="service-section-item" style="flex: 1">
         <p class="service-section-title">友情链接</p>
         <div class="links">
-          <a href="https://cpc.people.com.cn/">中国共产党新闻网</a>
-          <a href="https://www.12371.cn/">共产党员网</a>
-          <a href="http://www.zjzzgz.gov.cn/">浙江组织工作网</a>
-          <a href="https://www.xuexi.cn/">学习强国</a>
-          <a href="http://www.people.com.cn/">人民网</a>
+          <a target="_blank" href="https://cpc.people.com.cn/">中国共产党新闻网</a>
+          <a target="_blank" href="https://www.12371.cn/">共产党员网</a>
+          <a target="_blank" href="http://www.zjzzgz.gov.cn/">浙江组织工作网</a>
+          <a target="_blank" href="https://www.xuexi.cn/">学习强国</a>
+          <a target="_blank" href="http://www.people.com.cn/">人民网</a>
         </div>
       </div>
     </div>
