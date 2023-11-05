@@ -135,6 +135,13 @@ console.log(menuList[6]);
           <a target="_blank" href="http://www.zjzzgz.gov.cn/">浙江组织工作网</a>
           <a target="_blank" href="https://www.xuexi.cn/">学习强国</a>
           <a target="_blank" href="http://www.people.com.cn/">人民网</a>
+          <a target="_blank" href="http://www.zjsdxf.cn/">浙江省党员干部现代远程教育网</a>
+          <a target="_blank" href="http://www.hzdj.gov.cn/">杭州党建网</a>
+          <a target="_blank" href="http://www.dfdj.gov.cn/">宁波东方党建网</a>
+          <a target="_blank" href="http://www.wzdj.gov.cn/">温州党建网</a>
+          <a target="_blank" href="http://zzb.huzhou.gov.cn/">湖州组织工作网</a>
+          <a target="_blank" href="http://www.qzdj.gov.cn/">衢州党建网</a>
+          <a target="_blank" href="http://www.zsdj.gov.cn/">舟山党建网</a>
         </div>
       </div>
     </div>
@@ -285,10 +292,14 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 10px;
+    padding: 17px 10px 17px 10px;
     li {
       font-size: 14px;
       font-weight: bold;
+      width: 415px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
       a {
         color: var(--color-text);
       }
