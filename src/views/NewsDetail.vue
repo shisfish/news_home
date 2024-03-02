@@ -71,6 +71,12 @@ getNewsInfo(id).then((res) => {
     img {
       max-width: 100%;
     }
+    p {
+        margin: 1px 0;
+        span {
+           font-weight: inherit;
+        }
+    }
   }
 }
 </style>
