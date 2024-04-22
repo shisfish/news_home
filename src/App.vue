@@ -111,8 +111,8 @@ const isActiveMenu = (id) => {
   <footer v-if="menuList.length">
     <p>中共绍兴市委组织部 主办</p>
     <p>地址：绍兴市越城区洋江西路589号 邮编：312000 联系电话：0575－85132844</p>
-    <p>浙ICP备11008497号-1</p>
-    <p style="margin-top: 20px">浙公网安备 33060202000253号</p>
+    <p><a href="https://beian.miit.gov.cn/">浙ICP备11008497号-1</a></p>
+    <p style="margin-top: 20px"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33060202000253">浙公网安备 33060202000253号</a></p>
   </footer>
 </template>
 
@@ -141,6 +141,11 @@ footer {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  p {
+    a {
+        color: #ffffff;
+    }
+  }
 }
 
 .links {
