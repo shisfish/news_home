@@ -112,7 +112,9 @@ const isActiveMenu = (id) => {
     <p>版权所有：中共绍兴市委组织部 备案号：<a href="https://beian.miit.gov.cn/">浙ICP备11008497号-1</a> <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33060202000253">浙公网安备 33060202000253号</a></p>
     <p>邮编：312000 地址：绍兴市越城区洋江西路589号 联系电话：0575－85132844</p>
     <div class="footer-images"> <!-- 新增容器包裹图片 -->
-      <img src="@/assets/red.png" alt="政府网站" />
+      <a href="http://bszs.conac.cn/sitename?method=show&id=07A11D7AE61C3648E053012819AC0955">
+        <img src="@/assets/red.png" alt="政府网站" />
+      </a>
       <a href="https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3300000068&amp;url=http%3A%2F%2Fwww.zj.gov.cn%2F">
         <img src="@/assets/jiucuo.png" alt="找错" />
       </a>

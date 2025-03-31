@@ -134,18 +134,23 @@ console.log(menuList[6]);
 <!--      </div>-->
       <div class="service-section-item" style="flex: 1">
         <p class="service-section-title">友情链接</p>
-        <div class="links">
-          <a target="_blank" href="http://www.zjzzgz.gov.cn/">浙江组织工作网</a>
-          <a target="_blank" href="http://www.hzdj.gov.cn/">杭州党建网</a>
-          <a target="_blank" href="http://web.dfdj.gov.cn/">宁波党建网</a>
-          <a target="_blank" href="http://www.wzdj.gov.cn/">温州党建网</a>
-          <p>嘉兴红船网</p>
-          <a target="_blank" href="http://zzb.huzhou.gov.cn/">湖州组织工作网</a>
-          <p>金华先锋网</p>
-          <a target="_blank" href="http://www.qzdj.gov.cn/">衢州党建网</a>
-          <a target="_blank" href="http://www.zsdj.gov.cn/">舟山党建网</a>
-          <a target="_blank" href="https://www.zjtz.gov.cn/col/col1229050428/#">台州党建网</a>
-          <a target="_blank" href="https://www.lsxfw.cn/">丽水先锋网</a>
+        <div class="links-container">
+          <div class="links-row">
+            <a target="_blank" href="http://www.zjzzgz.gov.cn/">浙江组织工作网</a>
+            <a target="_blank" href="http://www.hzdj.gov.cn/">杭州党建网</a>
+            <a target="_blank" href="http://web.dfdj.gov.cn/">宁波党建网</a>
+            <a target="_blank" href="http://www.wzdj.gov.cn/">温州党建网</a>
+            <p>嘉兴红船网</p>
+            <a target="_blank" href="http://zzb.huzhou.gov.cn/">湖州组织工作网</a>
+          </div>
+          <div class="links-row">
+            <p>金华先锋网</p>
+            <a target="_blank" href="http://www.qzdj.gov.cn/">衢州党建网</a>
+            <a target="_blank" href="http://www.zsdj.gov.cn/">舟山党建网</a>
+            <a target="_blank" href="https://www.zjtz.gov.cn/col/col1229050428/#">台州党建网</a>
+            <a target="_blank" href="https://www.lsxfw.cn/">丽水先锋网</a>
+            <span class="empty-item"></span> <!-- 空占位元素 -->
+          </div>
         </div>
       </div>
     </div>
@@ -319,7 +324,7 @@ main {
 
 .service-section {
   width: 100%;
-  height: 114px;
+  height: 124px;
   margin-bottom: 20px;
   border: 1px solid var(--color-primary);
   background-color: transparent;
@@ -333,7 +338,7 @@ main {
 
   .service-section-item {
     height: 100%;
-    padding: 2px 25px 25px;
+    padding: 2px 5px 25px 25px;
   }
   .service-section-title {
     font-size: 18px;
@@ -378,33 +383,38 @@ main {
   }
 }
 
-.links {
+.links-container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.links-row {
+  display: flex;
+  justify-content: space-between;
+  
+  a, p, .empty-item {
+    flex: 1;
+    max-width: calc(100% / 6); /* 6等分 */
+    height: 27px;
+    line-height: 27px;
+    font-size: 14px;
+    color: #5c5b5b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+  }
+
   a {
-    width: 16%;
-    padding-right: 15px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: inline-block;
-    height: 27px;
-    line-height: 27px;
-    font-size: 14px;
-    color: #5c5b5b;
-  };
-  p {
-    width: 16%;
-    padding-right: 15px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: inline-block;
-    height: 27px;
-    line-height: 27px;
-    font-size: 14px;
-    color: #5c5b5b;
+    text-decoration: none;
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  .empty-item {
+    visibility: hidden; /* 隐藏占位元素 */
   }
 }
 </style>
