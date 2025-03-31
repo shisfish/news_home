@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { getNewsList, getNewsListWithImage } from '../utils/request'
 
 import News from '../components/News.vue'
-import Subject from '../components/Subject.vue'
+import Server from '../components/Server.vue'
 import NewsLink from '../components/NewsLink.vue'
 
 import 'swiper/css'
@@ -100,48 +100,52 @@ console.log(menuList[6]);
         </div>
       </div>
     </section>
-    <img src="@/assets/1.jpg" style="width: 100%; margin: 20px 0" />
+<!--    <img src="@/assets/1.jpg" style="width: 100%; margin: 20px 0" />-->
+    <p style="width: 100%; margin: 20px 0" />
     <div class="news-wapper">
-      <News v-for="item of menuList.slice(2)" v-bind:key="item.newsTypeId" :menu="item" />
-      <Subject />
+      <News v-bind:key="menuList[3].newsTypeId" :menu="menuList[3]" />
+      <News v-bind:key="menuList[2].newsTypeId" :menu="menuList[2]" />
+      <News v-bind:key="menuList[4].newsTypeId" :menu="menuList[4]" />
+      <News v-bind:key="menuList[5].newsTypeId" :menu="menuList[5]" />
+      <News v-bind:key="menuList[6].newsTypeId" :menu="menuList[6]" />
+      <Server />
     </div>
     <div class="service-section">
-      <div class="service-section-item">
-        <p class="service-section-title">服务之窗</p>
-        <ul>
-          <li>
-            <a href="https://zjsx12380.gov.cn/" target="_blank">
-              <img src="@/assets/email.jpg" alt="" />
-              <p>12380举报</p>
-            </a>
-          </li>
-          <li>
-            <a href="http://www.zjce.gov.cn/" target="_blank">
-              <img src="@/assets/logo2.jpg" />
-              <p>领导干部网络学院</p>
-            </a>
-          </li>
-          <li>
-            <img src="@/assets/qrcode.jpg" alt="" />
-            <p>“绍兴组工”公众号</p>
-          </li>
-        </ul>
-      </div>
+<!--      <div class="service-section-item">-->
+<!--        <p class="service-section-title">服务之窗</p>-->
+<!--        <ul>-->
+<!--          <li>-->
+<!--            <a href="https://zjsx12380.gov.cn/" target="_blank">-->
+<!--              <img src="@/assets/email.jpg" alt="" />-->
+<!--              <p>12380举报</p>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="http://www.zjce.gov.cn/" target="_blank">-->
+<!--              <img src="@/assets/logo2.jpg" />-->
+<!--              <p>领导干部网络学院</p>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <img src="@/assets/qrcode.jpg" alt="" />-->
+<!--            <p>“绍兴组工”公众号</p>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </div>-->
       <div class="service-section-item" style="flex: 1">
         <p class="service-section-title">友情链接</p>
         <div class="links">
-          <a target="_blank" href="https://cpc.people.com.cn/">中国共产党新闻网</a>
-          <a target="_blank" href="https://www.12371.cn/">共产党员网</a>
           <a target="_blank" href="http://www.zjzzgz.gov.cn/">浙江组织工作网</a>
-          <a target="_blank" href="https://www.xuexi.cn/">学习强国</a>
-          <a target="_blank" href="http://www.people.com.cn/">人民网</a>
-          <a target="_blank" href="http://www.zjsdxf.cn/">浙江省党员干部现代远程教育网</a>
           <a target="_blank" href="http://www.hzdj.gov.cn/">杭州党建网</a>
-          <a target="_blank" href="http://www.dfdj.gov.cn/">宁波东方党建网</a>
+          <a target="_blank" href="http://web.dfdj.gov.cn/">宁波党建网</a>
           <a target="_blank" href="http://www.wzdj.gov.cn/">温州党建网</a>
+          <p>嘉兴红船网</p>
           <a target="_blank" href="http://zzb.huzhou.gov.cn/">湖州组织工作网</a>
+          <p>金华先锋网</p>
           <a target="_blank" href="http://www.qzdj.gov.cn/">衢州党建网</a>
           <a target="_blank" href="http://www.zsdj.gov.cn/">舟山党建网</a>
+          <a target="_blank" href="https://www.zjtz.gov.cn/col/col1229050428/#">台州党建网</a>
+          <a target="_blank" href="https://www.lsxfw.cn/">丽水先锋网</a>
         </div>
       </div>
     </div>
@@ -315,7 +319,7 @@ main {
 
 .service-section {
   width: 100%;
-  height: 176px;
+  height: 114px;
   margin-bottom: 20px;
   border: 1px solid var(--color-primary);
   background-color: transparent;
@@ -379,7 +383,19 @@ main {
   flex-direction: row;
   flex-wrap: wrap;
   a {
-    width: 25%;
+    width: 16%;
+    padding-right: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    height: 27px;
+    line-height: 27px;
+    font-size: 14px;
+    color: #5c5b5b;
+  };
+  p {
+    width: 16%;
     padding-right: 15px;
     white-space: nowrap;
     overflow: hidden;

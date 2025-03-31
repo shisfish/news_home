@@ -109,10 +109,14 @@ const isActiveMenu = (id) => {
   <RouterView v-if="menuList.length" />
 
   <footer v-if="menuList.length">
-    <p>中共绍兴市委组织部 主办</p>
-    <p>地址：绍兴市越城区洋江西路589号 邮编：312000 联系电话：0575－85132844</p>
-    <p><a href="https://beian.miit.gov.cn/">浙ICP备11008497号-1</a></p>
-    <p style="margin-top: 20px"><a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33060202000253">浙公网安备 33060202000253号</a></p>
+    <p>版权所有：中共绍兴市委组织部 备案号：<a href="https://beian.miit.gov.cn/">浙ICP备11008497号-1</a> <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33060202000253">浙公网安备 33060202000253号</a></p>
+    <p>邮编：312000 地址：绍兴市越城区洋江西路589号 联系电话：0575－85132844</p>
+    <div class="footer-images"> <!-- 新增容器包裹图片 -->
+      <img src="@/assets/red.png" alt="政府网站" />
+      <a href="https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3300000068&amp;url=http%3A%2F%2Fwww.zj.gov.cn%2F">
+        <img src="@/assets/jiucuo.png" alt="找错" />
+      </a>
+    </div>
   </footer>
 </template>
 
@@ -141,9 +145,24 @@ footer {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  text-align: center; /* 确保文本居中 */
+
   p {
+    margin: 0 0 10px 0; /* 调整段落间距 */
     a {
-        color: #ffffff;
+      color: #ffffff;
+    }
+  }
+
+  .footer-images {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* 增大图片间距 */
+    margin-top: 15px; /* 调整与上方文字的间距 */
+
+    img {
+      vertical-align: middle;
+      /* 移除 width/height 限制，保持原图尺寸 */
     }
   }
 }
