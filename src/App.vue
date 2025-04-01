@@ -10,11 +10,15 @@ const menuList = ref([])
 const isHomePage = ref(false)
 
 provide('menuList', readonly(menuList))
-
+const swapElements = (arr, index1, index2) => {
+  [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+  return arr;
+};
 getListType().then((res) => {
   if (res.flag) {
     console.log(res.data)
     menuList.value.push(...res.data)
+    swapElements(menuList.value, 2, 3);
   }
 })
 

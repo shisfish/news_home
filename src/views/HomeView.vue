@@ -103,11 +103,7 @@ console.log(menuList[6]);
 <!--    <img src="@/assets/1.jpg" style="width: 100%; margin: 20px 0" />-->
     <p style="width: 100%; margin: 20px 0" />
     <div class="news-wapper">
-      <News v-bind:key="menuList[3].newsTypeId" :menu="menuList[3]" />
-      <News v-bind:key="menuList[2].newsTypeId" :menu="menuList[2]" />
-      <News v-bind:key="menuList[4].newsTypeId" :menu="menuList[4]" />
-      <News v-bind:key="menuList[5].newsTypeId" :menu="menuList[5]" />
-      <News v-bind:key="menuList[6].newsTypeId" :menu="menuList[6]" />
+      <News v-for="item of menuList.slice(2)" v-bind:key="item.newsTypeId" :menu="item" />
       <Server />
     </div>
     <div class="service-section">
