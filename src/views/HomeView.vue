@@ -132,7 +132,7 @@ console.log(menuList[6]);
         <p class="service-section-title">友情链接</p>
         <div class="links-container">
           <div class="links-row">
-            <a target="_blank" href="http://www.zjzzgz.gov.cn/">浙江组织工作网</a>
+            <a target="_blank" href="https://www.zjzzgz.gov.cn/">浙江组织工作网</a>
             <a target="_blank" href="http://www.hzdj.gov.cn/">杭州党建网</a>
             <a target="_blank" href="http://web.dfdj.gov.cn/">宁波党建网</a>
             <a target="_blank" href="http://www.wzdj.gov.cn/">温州党建网</a>
